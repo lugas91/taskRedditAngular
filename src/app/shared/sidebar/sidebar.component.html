@@ -1,0 +1,42 @@
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="ssd">
+      <ul  class="pt-0">
+        <li  [class.active]="showMenu === 'dashboard?type=popular'">
+          <a class="hvr-themes" routerLink="/dashboard" [queryParams]="{type: 'popular'}" (click)="addExpandClass('dashboard/popular')" [routerLinkActive]="['router-link-active']">Popular</a>
+        </li>
+        <li  [class.active]="showMenu === 'dashboard?type=all'">
+          <a class="hvr-themes" routerLink="/dashboard" [queryParams]="{type: 'all'}" (click)="addExpandClass('dashboard/all')" [routerLinkActive]="['router-link-active']">All</a>
+        </li>
+        <li  [class.active]="showMenu === 'dashboard?type=random'">
+          <a class="hvr-themes" routerLink="/dashboard" [queryParams]="{type: 'random'}" (click)="addExpandClass('dashboard/random')" [routerLinkActive]="['router-link-active']">Random</a>
+        </li>
+        <li  [class.active]="showMenu === 'dashboard?type=user'">
+          <a class="hvr-themes" routerLink="/dashboard" [queryParams]="{type: 'user'}" (click)="addExpandClass('dashboard/user')" [routerLinkActive]="['router-link-active']">User</a>
+        </li>
+      </ul>
+    </div>
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="pt-0">
+                <li class="nav-devider"></li>
+                <li *ngFor="let item of listData">
+                    <a routerLink="/dashboard/{{item.title}}" (click)="addExpandClass('component')" [routerLinkActive]="['router-link-active']"><span class="hide-menu">{{item.title}}</span></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+    <!-- Bottom points-->
+    <div class="sidebar-footer">
+        <!-- item-->
+        <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+        <!-- item-->
+        <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+        <!-- item-->
+        <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+    </div>
+    <!-- End Bottom points-->
+</aside>

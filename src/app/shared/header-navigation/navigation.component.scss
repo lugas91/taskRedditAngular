@@ -1,0 +1,38 @@
+.top-navbar{
+  background: #f7f7f7;
+}
+.navbar-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.sbmit{
+  div{
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  a{
+    font-size: 35px;
+  }
+}
+@media (max-width:1021px) {
+  .topbar .navbar-header{
+    box-shadow:none !important;
+  }
+  .mr-auto{
+    margin-left: 240px;
+    .nav-item > a.nav-link{
+      color: #555 !important;
+      position: fixed;
+      top: 0;
+      left: 10px;
+    }
+  }
+}
+@media (max-width:767px) {
+  .navbar-header{
+    transform: translateX(-100%) ;
+  }
+
+}

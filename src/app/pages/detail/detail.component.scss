@@ -1,0 +1,51 @@
+
+.item-post{
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 25px;
+  font-size: 12px;
+}
+
+.up-down-vote{
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 30px;
+  .rate{
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: -10px;
+  }
+  & > *{
+    display: block;
+  }
+  & > button,
+  & > a{
+    border: none;
+    background: transparent;
+    color: #e5e5e6;
+    outline-color: transparent;
+    cursor: pointer;
+    height: 15px;
+    margin: auto;
+    &>i{
+      font-size: 20px;
+      line-height: 0;
+    }
+  }
+}
+
+
+.posted-date{
+  font-size: 11px;
+  margin-bottom: 5px;
+  color: #b3aeae;
+}
+
+
+.comment{
+  .frm{
+    font-size: 11px;
+    color: #b3aeae;
+  }
+}

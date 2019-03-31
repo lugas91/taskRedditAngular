@@ -1,0 +1,67 @@
+<div class="mnu">
+  <ul>
+    <li>
+      <button (click)="this.mn = 'rate'" class="btn btn-link btn-cust hvr-themes" >hot</button>
+    </li>
+    <li>
+      <button (click)="this.mn = 'date'" class="btn btn-link btn-cust hvr-themes">latest</button>
+    </li>
+    <li>
+      <button (click)="this.mn = 'commentLength'"  class="btn btn-link btn-cust hvr-themes">top comments</button>
+    </li>
+  </ul>
+</div>
+<div class="row">
+    <div class="col-lg-12 ">
+        <div class="card box-shadow">
+            <div class="card-body">
+              <div class="item-post" *ngFor="let item of listData | sortdesc:mn; let i = index;   ">
+                <div class="cntnt d-flex justify-content-space-between align-items-center">
+                  <div class="up-down-vote text-center">
+                    <button class="hvr-themes" (click)="rateUp( i)"><i class="fa fa-sort-up"></i></button>
+                    <div class="rate " [innerHtml]="changeNominal(item.rate)"></div>
+                    <button class="hvr-themes" (click)="rateDown( i)"><i class="fa fa-sort-down"></i></button>
+                  </div>
+                  <div class="ssd d-md-flex justify-content-space-between align-items-center">
+                    <a  routerLink="/detail/{{item.id}}"  class="image-post d-md-inline-block d-none">
+                      <div>
+                        <img src="assets/images/background/{{item.image}}" alt="images">
+                      </div>
+                    </a>
+                    <div class="crt text-default">
+                      <a  routerLink="/detail/{{item.id}}"  class="font-weight-bold title">
+                        <h5 class=" text-default hvr-themes ">{{item.title}}</h5>
+                        <small class=" text-default hvr-themes "> {{item.date | date:'short'}}</small>
+                      </a>
+                      <a  routerLink="/detail/{{item.id}}"  class="ellapsis subtitle text-black">
+                        <div [innerHtml]="ssd(item.content)"></div>
+                      </a>
+                      <div class="cmnts pr-3">
+                        <a  routerLink="/detail/{{item.id}}"  class="hvr-themes text-black"><b [innerHtml]="changeNominal(item.comments.length)" class="p-r-5"></b> <span>comments</span></a> |
+                        <button  (click)="this.underCont=true"  class="hvr-themes text-black">share</button> |
+                        <button (click)="this.underCont=true"  class="hvr-themes text-black">save</button> |
+                        <button  (click)="this.underCont=true"  class="hvr-themes text-black">report</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="popup" *ngIf="underCont">
+  <div class="">
+    <div class="content p-4 text-center" >
+      <p>
+        Under Contraction
+      </p>
+      <div class="text-center">
+        <button class="btn btn-danger" (click)="this.underCont = false;"> Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

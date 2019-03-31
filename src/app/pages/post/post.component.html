@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-space-between mb-4">
+  <h5>Create Post</h5>
+  <div class="">
+    <button class="btn btn-link">Draft: {{drft}}</button>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col-md-6">
+    <label>Category</label>
+    <select class="form-control" [(ngModel)]="cat">
+      <option [value]="item.title" *ngFor="let item of listTag">{{item.title}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card box-shadow">
+            <div class="card-body">
+              <div class="mb-2">
+                <input type="text" [(ngModel)]="title" class="form-control" placeholder="Title">
+              </div>
+              <div [froalaEditor]='options' [(froalaModel)]="editorContent" class="tedit"></div>
+              <div class="mt-2 text-right">
+                <button class="btn btn-md btn-outline btn-primary mr-2 text-white" (click)="drf()">Draft</button>
+                <button class="btn btn-md btn-outline btn-success mr-2 text-white" (click)="btn()">Send</button>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="popup" *ngIf="alert">
+  <div class="content">
+    <div class="text-center">
+      {{msg}}
+      <div class="text-right">
+        <button (click)="this.alert=false" class="btn btn-sm btn-danger">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
